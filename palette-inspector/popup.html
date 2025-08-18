@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Palette Inspector</title>
+  <link rel="stylesheet" href="popup.css" />
+  <script defer src="popup.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Palette inspector</h1>
+    <p class="subtitle">Check the entire palette used by the page</p>
+  </header>
+
+  <div class="controls">
+    <button id="analyzeBtn">Inspect</button>
+    <label>
+      Format:
+      <select id="formatSelect">
+        <option value="hex">HEX</option>
+        <option value="rgb">RGB</option>
+        <option value="hsl">HSL</option>
+      </select>
+    </label>
+  </div>
+
+  <div id="status" class="status">Waiting for inspection</div>
+
+  <div id="summary" class="summary hidden"></div>
+
+  <section id="palette" class="palette"></section>
+
+  <footer>
+    <small>v1.0 — Palette Inspector</small>
+  </footer>
+</body>
+</html>
