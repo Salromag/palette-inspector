@@ -1,7 +1,6 @@
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.type === 'COLLECT_COLORS') {
-    // logic to collect colors from the page
-    const colors = collectColorsFromPage(); // your existing function
+    const colors = collectColorsFromPage();
     sendResponse({ 
       colors, 
       total: colors.length, 
