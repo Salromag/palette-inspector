@@ -60,25 +60,40 @@ function renderPalette(colors) {
 
   colors.forEach(c => {
     const value = c[fmt];
-    const el = document.createElement('div');
-    el.className = 'swatch';
 
-    const colorBox = document.createElement('div');
-    colorBox.style.width = '40px';
-    colorBox.style.height = '40px';
-    colorBox.style.backgroundColor = c.css;
-    colorBox.style.border = '1px solid #ccc';
-    colorBox.style.marginRight = '10px';
+    const swatch = document.createElement('div');
+    swatch.className = 'swatch';
 
-    const colorCode = document.createElement('span');
-    colorCode.textContent = value;
+    const chip = document.createElement('div');
+    chip.className = 'chip';
+    chip.style.backgroundColor = c.css;
 
-    el.style.display = 'flex';
-    el.style.alignItems = 'center';
-    el.style.marginBottom = '5px';
+    const meta = document.createElement('div');
+    meta.className = 'meta';
 
-    el.appendChild(colorBox);
-    el.appendChild(colorCode);
-    paletteEl.appendChild(el);
+    const code = document.createElement('div');
+    code.textContent = value;
+
+    const freq = document.createElement('div');
+    freq.className = 'freq';
+    freq.textContent = `${c.count} uses`;
+
+    const copyBtn = document.createElement('div');
+    copyBtn.className = 'copy';
+    copyBtn.textContent = 'Copy';
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(value).then(() => {
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => (copyBtn.textContent = 'Copy'), 1000);
+      });
+    });
+
+    meta.appendChild(code);
+    meta.appendChild(freq);
+    meta.appendChild(copyBtn);
+
+    swatch.appendChild(chip);
+    swatch.appendChild(meta);
+    paletteEl.appendChild(swatch);
   });
 }
