@@ -11,7 +11,8 @@ With one click, you can analyze a page and instantly see all the unique colors, 
 - 🎨 **Color swatches**: Preview each color with a visual square.  
 - 📋 **Copy to clipboard**: Quickly copy any color in the format you prefer (HEX, RGB, HSL).  
 - 📊 **Summary report**: See how many unique colors were found and how often they occur.  
-- ⚡ **Lightweight and fast**: Runs only when you click, no background activity.  
+- ⚡ **Lightweight and fast**: Runs only when you click, no background activity.
+- ☁️ **Download palette in json file**: Downlaod the palette to use it in other places.
 
 ---
 
@@ -56,7 +57,7 @@ Palette Inspector does not collect, share, or store user data.
 All color extraction happens locally in your browser.  
 
 A hosted privacy policy is available at:  
-👉 [Privacy Policy](https://yourusername.github.io/palette-inspector/privacy.html)  
+👉 [Privacy Policy](https://salromagu.github.io/palette-inspector/privacy.html)  
 
 ---
 
@@ -71,6 +72,10 @@ A hosted privacy policy is available at:
 Contributions are welcome! If you’d like to improve the extension, fork the repository and open a pull request.  
 
 ---
+
+## 🔒 Buy me a coffee!
+
+Every small donation helps to keep me awake, make a small donation here 👉 [Paypal](https://paypal.me/salromagu)
 
 ## 📄 License
 

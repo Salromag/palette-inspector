@@ -3,6 +3,7 @@ const analyzeBtn = document.getElementById('analyzeBtn');
 const paletteEl = document.getElementById('palette');
 const summaryEl = document.getElementById('summary');
 const formatSelect = document.getElementById('formatSelect');
+const saveBtn = document.getElementById('savePaletteBtn');
 
 analyzeBtn.addEventListener('click', async () => {
   setStatus('Injecting script and analyzing…');
@@ -53,6 +54,10 @@ function renderSummary({ total, unique }) {
   summaryEl.textContent = `${unique} unique colors detected (out of ${total} occurrences)`;
 }
 
+/**
+ * Render the palette of the colors in the popup
+ * @param {*} colors 
+ */
 function renderPalette(colors) {
   paletteEl._lastColors = colors;
   const fmt = formatSelect.value;
@@ -95,5 +100,26 @@ function renderPalette(colors) {
     swatch.appendChild(chip);
     swatch.appendChild(meta);
     paletteEl.appendChild(swatch);
+
+    saveBtn.style.display = colors.length ? 'inline-block' : 'none';
   });
 }
+
+/**
+ * Save palette file
+ */
+saveBtn.addEventListener('click', () => {
+  const colors = paletteEl._lastColors || [];
+  if (!colors.length) return;
+
+  const data = colors.map(c => c[formatSelect.value]);
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'palette.json';
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
